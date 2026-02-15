@@ -1,12 +1,13 @@
 import { Hono } from 'hono'
 import { z } from 'zod'
 import { validator } from 'hono/validator'
+import { createDriverContextMiddleware, getDriver } from '@/core';
 
 const serveSchema = z.object({
    query: z.string(),
 })
 const app = new Hono()
-
+app.use('*', createDriverContextMiddleware())
 
 // this endpoint will serve an ai agent that can be u
 app.post('/serve', validator(
@@ -14,8 +15,14 @@ app.post('/serve', validator(
     return serveSchema.parse(value)
   }), (c) => {
     const { query } = c.req.valid('json') as z.infer<typeof serveSchema>;
-    const agent = new Agent(query);
-    return c.text('Agent served successfully')
+    const driver = getDriver(c);
+   
+   
+    return c.json({
+      ok: true,
+      query,
+      hasDriver: Boolean(driver),
+    })
   })
 
 export default app

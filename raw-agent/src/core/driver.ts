@@ -1,5 +1,5 @@
 import { OpenAI } from 'openai';
-import { createRawAgentConfigFromFile } from './config';
+import { createRawAgentConfigFromFile } from '@/core/config';
 
 type OpenAIConstructorOptions = NonNullable<ConstructorParameters<typeof OpenAI>[0]>;
 // Use Pick so the API key requirement is derived from OpenAI's real constructor type.

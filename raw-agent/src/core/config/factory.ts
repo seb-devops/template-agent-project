@@ -1,5 +1,5 @@
-import { loadRawAgentConfig, type EnvMap } from './loader';
-import { parseRawAgentConfig, type RawAgentConfig } from './config';
+import { loadRawAgentConfig, type EnvMap } from '@/core/config/loader';
+import { parseRawAgentConfig, type RawAgentConfig } from '@/core/config/config';
 
 // Use Parameters so factory input always follows parser input type.
 type CreateRawAgentConfigInput = Parameters<typeof parseRawAgentConfig>[0];

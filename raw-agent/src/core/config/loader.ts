@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { parse } from 'yaml';
-import { parseRawAgentConfig, type RawAgentConfig } from './config';
+import { parseRawAgentConfig, type RawAgentConfig } from '@/core/config/config';
 
 const ENV_VAR_PATTERN = /\$\{([A-Z0-9_]+)\}/g;
 const DEFAULT_CONFIG_PATH = 'config/raw-agent.yaml';

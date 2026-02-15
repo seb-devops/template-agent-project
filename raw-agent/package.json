@@ -1,0 +1,16 @@
+{
+  "name": "raw-agent",
+  "scripts": {
+    "dev": "bun run --hot src/index.ts"
+  },
+  "dependencies": {
+    "ai": "^6.0.86",
+    "hono": "^4.11.9",
+    "openai": "^6.22.0",
+    "yaml": "^2.8.2",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}

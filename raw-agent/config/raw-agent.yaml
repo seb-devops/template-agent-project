@@ -1,0 +1,4 @@
+openai:
+  # Keep secret in environment, then inject during config loading.
+  apiKey: ${OPENAI_API_KEY}
+  baseURL: https://api.openai.com/v1

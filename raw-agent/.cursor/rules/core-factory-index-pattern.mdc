@@ -1,0 +1,18 @@
+---
+description: Enforce index barrel and factory pattern for core modules
+globs: src/**/*.ts
+alwaysApply: false
+---
+
+# Core Module Pattern
+
+- Prefer module barrels with `index.ts` for public exports.
+- Keep construction logic in factory functions, not inline in handlers/routes.
+- For config modules, expose:
+  - schema + parse function
+  - file loader
+  - factory helpers (e.g. `createXConfig`, `createXConfigFromFile`)
+- For driver modules, expose:
+  - class for runtime behavior
+  - factory helpers (e.g. `createDriver`, `createDriverFromConfigFile`)
+- Import from module root when possible (e.g. `src/core`, `src/core/config`), not deep internals.
